@@ -1,9 +1,14 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { CardModule } from 'primeng/card';
+import { PriceListComponent } from '~entities/ut-services/price-list/price-list.component';
 
 @Component({
-  imports: [CardModule, RouterOutlet],
+  imports: [
+    RouterOutlet,
+
+    // For the app.
+    PriceListComponent,
+  ],
   selector: 'app-root',
   standalone: true,
   styleUrl: './app.component.sass',
