@@ -1,0 +1,5 @@
+@for (service of services; track service.name) {
+  <p-card [header]="service.name" [subheader]="service.priceDescription"></p-card>
+} @empty {
+  <p>Список услуг пуст.</p>
+}
