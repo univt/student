@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { PriceListComponent } from '~entities/ut-services/price-list/price-list.component';
+import { Component } from '@angular/core'
+import { RouterOutlet } from '@angular/router'
+import { PriceListComponent } from '~entities/ut-services/price-list/price-list.component'
 
 @Component({
   imports: [
@@ -15,5 +15,5 @@ import { PriceListComponent } from '~entities/ut-services/price-list/price-list.
   templateUrl: './app.component.html',
 })
 export class AppComponent {
-  public title = 'student';
+  public title = 'student'
 }

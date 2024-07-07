@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { CardModule } from 'primeng/card';
-import { UTService } from '~entities/ut-services/ut-services.type';
+import { Component } from '@angular/core'
+import { CardModule } from 'primeng/card'
+import { UTService } from '~entities/ut-services/ut-services.type'
 
 @Component({
   imports: [CardModule],
