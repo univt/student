@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CardModule } from 'primeng/card';
-import { UTService } from '~entities/ut-services/services.type';
+import { UTService } from '~entities/ut-services/ut-services.type';
 
 @Component({
   imports: [CardModule],
@@ -10,7 +10,7 @@ import { UTService } from '~entities/ut-services/services.type';
   templateUrl: './price-list.component.html',
 })
 export class PriceListComponent {
-  public services: ReadonlyArray<UTService> = [
+  public readonly services: ReadonlyArray<UTService> = [
     {
       name: 'Диплом',
       priceDescription: 'от 6000 ₽',
