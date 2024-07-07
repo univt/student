@@ -1,6 +1,14 @@
 import { Routes } from '@angular/router'
-import { AngularHelloComponent } from './angular-hello/angular-hello.component'
+import { AngularHelloPageComponent } from '~pages/angular-hello-page/angular-hello-page.component'
+import { HomePageComponent } from '~pages/home-page/home-page.component'
 
 export const routes: Routes = [
-  { path: 'angular-hello', component: AngularHelloComponent },
+  {
+    component: HomePageComponent,
+    path: '',
+  },
+  {
+    component: AngularHelloPageComponent,
+    path: 'angular-hello',
+  },
 ]
