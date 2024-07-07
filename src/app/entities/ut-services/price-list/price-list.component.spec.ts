@@ -7,7 +7,7 @@ describe('PriceListComponent', (): void => {
 
   beforeEach(async (): Promise<void> => {
     await TestBed.configureTestingModule({
-      imports: [PriceListComponent]
+      imports: [PriceListComponent],
     })
       .compileComponents()
 

@@ -14,17 +14,4 @@ describe('AppComponent', (): void => {
     const app = fixture.componentInstance
     expect(app).toBeTruthy()
   })
-
-  it(`should have the 'student' title`, (): void => {
-    const fixture = TestBed.createComponent(AppComponent)
-    const app = fixture.componentInstance
-    expect(app.title).toEqual('student')
-  })
-
-  it('should render title', (): void => {
-    const fixture = TestBed.createComponent(AppComponent)
-    fixture.detectChanges()
-    const compiled = fixture.nativeElement as HTMLElement
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, student')
-  })
 })

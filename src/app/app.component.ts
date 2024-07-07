@@ -14,6 +14,4 @@ import { PriceListComponent } from '~entities/ut-services/price-list/price-list.
   styleUrl: './app.component.sass',
   templateUrl: './app.component.html',
 })
-export class AppComponent {
-  public title = 'student'
-}
+export class AppComponent {}
