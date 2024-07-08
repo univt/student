@@ -1,3 +1,6 @@
+import { provideHttpClient } from '@angular/common/http'
+import { provideHttpClientTesting } from '@angular/common/http/testing'
+import { Component } from '@angular/core'
 import { ComponentFixture, TestBed } from '@angular/core/testing'
 import { HomePageComponent } from './home-page.component'
 
@@ -7,7 +10,17 @@ describe('HomePageComponent', (): void => {
 
   beforeEach(async (): Promise<void> => {
     await TestBed.configureTestingModule({
-      imports: [HomePageComponent],
+      imports: [
+        // Component-under-test.
+        HomePageComponent,
+
+        // Stubs.
+        PriceListStubComponent,
+      ],
+      providers: [
+        provideHttpClient(),
+        provideHttpClientTesting(),
+      ],
     })
       .compileComponents()
 
@@ -20,3 +33,6 @@ describe('HomePageComponent', (): void => {
     expect(component).toBeTruthy()
   })
 })
+
+@Component({ selector: 'app-price-list', standalone: true, template: '' })
+class PriceListStubComponent {}

@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { PriceListComponent } from '~app/entities/ut-services/price-list/price-list.component';
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [PriceListComponent],
   selector: 'app-home-page',
   standalone: true,
