@@ -1,0 +1,11 @@
+.app-card-list-container
+  $card-min-width: 512px
+  $gap: 8px
+
+  display: grid
+  gap: $gap
+
+  @for $cards-count from 2 through 5
+    $device-min-width: $card-min-width * $cards-count + $gap * ($cards-count - 1)
+    @media ($device-min-width <= width)
+      grid-template-columns: repeat($cards-count, 1fr)
