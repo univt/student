@@ -1,0 +1,29 @@
+:host
+  --color-golden: #ffd700
+  --color-violet: #3e13af
+  --color-violet-dark-8: #310f8c
+
+  --color-accent: var(--color-golden)
+  --color-complementary: var(--color-violet)
+
+  --link-color: var(--color-violet-dark-8)
+  --link-color-hover: var(--color-accent)
+
+
+.app-contacts-container
+  display: flex
+  gap: 48px
+
+.app-contact-a
+  display: flex
+  align-items: center
+  gap: 8px
+  font-size: 48px
+  color: var(--link-color)
+  transition: color .3s
+
+  &:hover
+    color: var(--link-color-hover)
+
+.app-icon-container
+  width: 48px
