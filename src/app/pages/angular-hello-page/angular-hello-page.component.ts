@@ -1,5 +1,5 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { AngularHelloComponent } from '~app/angular-hello/angular-hello.component';
+import { ChangeDetectionStrategy, Component } from '@angular/core'
+import { AngularHelloComponent } from '~app/angular-hello/angular-hello.component'
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,

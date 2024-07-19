@@ -9,7 +9,7 @@ describe('UTServicesService', (): void => {
   beforeEach((): void => {
     TestBed.configureTestingModule({})
 
-    httpClientSpy = jasmine.createSpyObj('HttpClient', ['get']);
+    httpClientSpy = jasmine.createSpyObj('HttpClient', ['get'])
     service = new UTServicesService(httpClientSpy)
   })
 
