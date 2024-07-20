@@ -9,16 +9,18 @@
   --link-color: var(--color-violet-dark-8)
   --link-color-hover: var(--color-accent)
 
+  --size: 24px
 
 .app-contacts-container
   display: flex
-  gap: 48px
+  flex-wrap: wrap
+  gap: var(--size)
 
 .app-contact-a
   display: flex
   align-items: center
   gap: 8px
-  font-size: 48px
+  font-size: var(--size)
   color: var(--link-color)
   transition: color .3s
 
@@ -26,4 +28,4 @@
     color: var(--link-color-hover)
 
 .app-icon-container
-  width: 48px
+  width: var(--size)
