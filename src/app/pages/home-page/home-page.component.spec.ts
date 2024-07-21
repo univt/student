@@ -1,5 +1,3 @@
-import { provideHttpClient } from '@angular/common/http'
-import { provideHttpClientTesting } from '@angular/common/http/testing'
 import { Component } from '@angular/core'
 import { ComponentFixture, TestBed } from '@angular/core/testing'
 import { HomePageComponent } from './home-page.component'
@@ -15,11 +13,9 @@ describe('HomePageComponent', (): void => {
         HomePageComponent,
 
         // Stubs.
-        PriceListStubComponent,
-      ],
-      providers: [
-        provideHttpClient(),
-        provideHttpClientTesting(),
+        FrequentlyAskedQuestionsSectionStubComponent,
+        UTContactsSectionStubComponent,
+        UTServicesSectionStubComponent,
       ],
     })
       .compileComponents()
@@ -34,5 +30,11 @@ describe('HomePageComponent', (): void => {
   })
 })
 
-@Component({ selector: 'app-price-list', standalone: true, template: '' })
-class PriceListStubComponent {}
+@Component({ selector: 'app-frequently-asked-questions-section', standalone: true, template: '' })
+class FrequentlyAskedQuestionsSectionStubComponent {}
+
+@Component({ selector: 'app-ut-contacts-section', standalone: true, template: '' })
+class UTContactsSectionStubComponent {}
+
+@Component({ selector: 'app-ut-services-section', standalone: true, template: '' })
+class UTServicesSectionStubComponent {}
