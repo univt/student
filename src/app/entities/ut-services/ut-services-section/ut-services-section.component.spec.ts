@@ -1,3 +1,5 @@
+import { provideHttpClient } from '@angular/common/http'
+import { provideHttpClientTesting } from '@angular/common/http/testing'
 import { Component } from '@angular/core'
 import { ComponentFixture, TestBed } from '@angular/core/testing'
 import { UTServicesSectionComponent } from './ut-services-section.component'
@@ -14,6 +16,12 @@ describe('UTServicesSectionComponent', (): void => {
 
         // Stubs.
         PriceListStubComponent,
+      ],
+      // TODO: Do we need to provide something for `HttpClient`
+      //  if the component-under-test and the stubs do not use `HttpClient`?
+      providers: [
+        provideHttpClient(),
+        provideHttpClientTesting(),
       ],
     })
       .compileComponents()
