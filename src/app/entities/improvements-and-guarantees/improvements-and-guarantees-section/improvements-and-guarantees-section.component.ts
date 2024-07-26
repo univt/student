@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, DestroyRef, inject, OnInit } from '@angular/core'
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
-import { ImprovementsAndGuaranteesService } from '~entities/improvements-and-guarantees/improvements-and-guarantees.service'
-import { ImprovementsAndGuaranteesSection } from '~entities/improvements-and-guarantees/improvements-and-guarantees.type'
+import { ImprovementsAndGuaranteesSectionService } from '~entities/improvements-and-guarantees/improvements-and-guarantees-section/improvements-and-guarantees-section.service'
+import { ImprovementsAndGuaranteesSectionParameters } from '~entities/improvements-and-guarantees/improvements-and-guarantees-section/improvements-and-guarantees-section.type'
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -12,23 +12,23 @@ import { ImprovementsAndGuaranteesSection } from '~entities/improvements-and-gua
   templateUrl: './improvements-and-guarantees-section.component.html',
 })
 export class ImprovementsAndGuaranteesSectionComponent implements OnInit {
-  public section: ImprovementsAndGuaranteesSection = {
-    description: '',
-    title: '',
+  public sectionParameters: ImprovementsAndGuaranteesSectionParameters = {
+    description: 'No data.',
+    title: 'No data',
   }
 
   private readonly destroyRef = inject(DestroyRef)
 
   constructor(
     private readonly cdr: ChangeDetectorRef,
-    private readonly improvementsAndGuaranteesService: ImprovementsAndGuaranteesService,
+    private readonly improvementsAndGuaranteesSectionService: ImprovementsAndGuaranteesSectionService,
   ) {}
 
   public ngOnInit(): void {
-    this.improvementsAndGuaranteesService.getImprovementsAndGuaranteesSection()
+    this.improvementsAndGuaranteesSectionService.readSectionParameters()
       .pipe(takeUntilDestroyed(this.destroyRef))
-      .subscribe((section: ImprovementsAndGuaranteesSection): void => {
-        this.section = section
+      .subscribe((sectionParameters: ImprovementsAndGuaranteesSectionParameters): void => {
+        this.sectionParameters = sectionParameters
         this.cdr.markForCheck()
       })
   }
