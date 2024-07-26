@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core'
 import { FrequentlyAskedQuestionsSectionComponent } from '~entities/frequently-asked-questions/frequently-asked-questions-section/frequently-asked-questions-section.component'
+import { ImprovementsAndGuaranteesSectionComponent } from '~entities/improvements-and-guarantees/improvements-and-guarantees-section/improvements-and-guarantees-section.component'
 import { UTContactsSectionComponent } from '~entities/ut-contacts/ut-contacts-section/ut-contacts-section.component'
 import { UTServicesSectionComponent } from '~entities/ut-services/ut-services-section/ut-services-section.component'
 
@@ -7,8 +8,9 @@ import { UTServicesSectionComponent } from '~entities/ut-services/ut-services-se
     changeDetection: ChangeDetectionStrategy.OnPush,
     imports: [
       FrequentlyAskedQuestionsSectionComponent,
-      UTServicesSectionComponent,
+      ImprovementsAndGuaranteesSectionComponent,
       UTContactsSectionComponent,
+      UTServicesSectionComponent,
     ],
     selector: 'app-home-page',
     standalone: true,
