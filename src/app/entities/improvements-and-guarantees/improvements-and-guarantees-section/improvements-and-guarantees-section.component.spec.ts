@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing'
 import { Observable, of } from 'rxjs'
-import { ImprovementsAndGuaranteesService } from '~entities/improvements-and-guarantees/improvements-and-guarantees.service'
-import { ImprovementsAndGuaranteesSection } from '~entities/improvements-and-guarantees/improvements-and-guarantees.type'
+import { ImprovementsAndGuaranteesSectionService } from '~entities/improvements-and-guarantees/improvements-and-guarantees-section/improvements-and-guarantees-section.service'
+import { ImprovementsAndGuaranteesSectionParameters } from '~entities/improvements-and-guarantees/improvements-and-guarantees-section/improvements-and-guarantees-section.type'
 import { ImprovementsAndGuaranteesSectionComponent } from './improvements-and-guarantees-section.component'
 
 describe('ImprovementsAndGuaranteesSectionComponent', (): void => {
@@ -14,7 +14,7 @@ describe('ImprovementsAndGuaranteesSectionComponent', (): void => {
       // Provide the component-under-test and the dependent service.
       providers: [
         ImprovementsAndGuaranteesSectionComponent,
-        { provide: ImprovementsAndGuaranteesService, useClass: ImprovementsAndGuaranteesStubService },
+        { provide: ImprovementsAndGuaranteesSectionService, useClass: ImprovementsAndGuaranteesSectionStubService },
       ],
     })
       .compileComponents()
@@ -29,12 +29,12 @@ describe('ImprovementsAndGuaranteesSectionComponent', (): void => {
   })
 })
 
-class ImprovementsAndGuaranteesStubService {
-  public getImprovementsAndGuaranteesSection(): Observable<ImprovementsAndGuaranteesSection> {
-    const section: ImprovementsAndGuaranteesSection = {
+class ImprovementsAndGuaranteesSectionStubService {
+  public readSectionParameters(): Observable<ImprovementsAndGuaranteesSectionParameters> {
+    const sectionParameters: ImprovementsAndGuaranteesSectionParameters = {
       description: 'description',
       title: 'title',
     }
-    return of(section)
+    return of(sectionParameters)
   }
 }
