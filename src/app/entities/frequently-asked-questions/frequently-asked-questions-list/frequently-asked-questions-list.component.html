@@ -1,7 +1,7 @@
-<p-accordion [activeIndex]="[0]" multiple>
+<p-accordion>
   @for (questionItem of list; track questionItem.question) {
     <p-accordionTab [header]="questionItem.question">
-        <p class="m-0">
+        <p>
           {{ questionItem.answer }}
         </p>
     </p-accordionTab>
