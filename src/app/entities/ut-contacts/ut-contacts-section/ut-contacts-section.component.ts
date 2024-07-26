@@ -2,7 +2,8 @@ import { NgComponentOutlet, NgTemplateOutlet } from '@angular/common'
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, DestroyRef, inject, OnInit } from '@angular/core'
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
 import { IconComponentType, uTContactIconComponentsMap } from '~entities/ut-contacts/icons/ut-contacts-icon-components.util'
-import { UTContactsService } from '~entities/ut-contacts/ut-contacts.service'
+import { UTContactsSectionService } from '~entities/ut-contacts/ut-contacts-section/ut-contacts-section.service'
+import { UTContactsSectionParameters } from '~entities/ut-contacts/ut-contacts-section/ut-contacts-section.type'
 import { UTContact, UTContactCodename } from '~entities/ut-contacts/ut-contacts.type'
 
 @Component({
@@ -16,15 +17,28 @@ import { UTContact, UTContactCodename } from '~entities/ut-contacts/ut-contacts.
 export class UTContactsSectionComponent implements OnInit {
   public contacts: ReadonlyArray<UTContactForTemplate> = []
 
+  public sectionParameters: UTContactsSectionParameters = {
+    list: {
+      emptyStateText: 'No data.',
+    },
+    title: 'No data',
+  }
+
   private readonly destroyRef = inject(DestroyRef)
 
   constructor(
     private readonly cdr: ChangeDetectorRef,
-    private readonly uTContactsService: UTContactsService,
+    private readonly uTContactsSectionService: UTContactsSectionService,
   ) {}
 
   public ngOnInit(): void {
-    this.uTContactsService.getUTContacts()
+    this.uTContactsSectionService.readSectionParameters()
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe((sectionParameters: UTContactsSectionParameters): void => {
+        this.sectionParameters = sectionParameters
+        this.cdr.markForCheck()
+      })
+    this.uTContactsSectionService.readUTContacts()
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe((contacts: ReadonlyArray<UTContact>): void => {
         this.contacts = contacts.map(prepareUTContactForTemplate)

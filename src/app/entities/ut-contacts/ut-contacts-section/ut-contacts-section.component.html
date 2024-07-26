@@ -1,11 +1,11 @@
 <section>
-  <h1>Контакты</h1>
+  <h1>{{sectionParameters.title}}</h1>
 
   <div class="app-contacts-container">
     @for (contact of contacts; track contact.codename) {
       <ng-container *ngTemplateOutlet="contactTemplate; context: { $implicit: contact }"></ng-container>
     } @empty {
-      <p>Список контактов пуст.</p>
+      <p>{{sectionParameters.list.emptyStateText}}</p>
     }
   </div>
 </section>

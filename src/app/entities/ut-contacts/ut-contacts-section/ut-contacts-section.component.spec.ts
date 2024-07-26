@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing'
 import { Observable, of } from 'rxjs'
-import { UTContactsService } from '~entities/ut-contacts/ut-contacts.service'
+import { UTContactsSectionService } from '~entities/ut-contacts/ut-contacts-section/ut-contacts-section.service'
+import { UTContactsSectionParameters } from '~entities/ut-contacts/ut-contacts-section/ut-contacts-section.type'
 import { UTContact, UTContactCodename } from '~entities/ut-contacts/ut-contacts.type'
 import { UTContactsSectionComponent } from './ut-contacts-section.component'
 
@@ -14,7 +15,7 @@ describe('UTContactsSectionComponent', (): void => {
       // Provide the component-under-test and the dependent service.
       providers: [
         UTContactsSectionComponent,
-        { provide: UTContactsService, useClass: UTContactsStubService },
+        { provide: UTContactsSectionService, useClass: UTContactsSectionStubService },
       ],
     })
       .compileComponents()
@@ -29,8 +30,18 @@ describe('UTContactsSectionComponent', (): void => {
   })
 })
 
-class UTContactsStubService {
-  public getUTContacts(): Observable<ReadonlyArray<UTContact>> {
+class UTContactsSectionStubService {
+  public readSectionParameters(): Observable<UTContactsSectionParameters> {
+    const sectionParameters: UTContactsSectionParameters = {
+      list: {
+        emptyStateText: 'No data.',
+      },
+      title: 'No data',
+    }
+    return of(sectionParameters)
+  }
+
+  public readUTContacts(): Observable<ReadonlyArray<UTContact>> {
     const contacts: ReadonlyArray<UTContact> = [
       {
         codename: UTContactCodename.VK,
