@@ -1,5 +1,4 @@
 import { HttpClient } from '@angular/common/http'
-import { TestBed } from '@angular/core/testing'
 import { UTServicesService } from './ut-services.service'
 
 describe('UTServicesService', (): void => {
@@ -7,8 +6,6 @@ describe('UTServicesService', (): void => {
   let service: UTServicesService
 
   beforeEach((): void => {
-    TestBed.configureTestingModule({})
-
     httpClientSpy = jasmine.createSpyObj('HttpClient', ['get'])
     service = new UTServicesService(httpClientSpy)
   })
