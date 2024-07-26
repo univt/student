@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, DestroyRef, inje
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
 import { FrequentlyAskedQuestionsListComponent } from '~entities/frequently-asked-questions/frequently-asked-questions-list/frequently-asked-questions-list.component'
 import { FrequentlyAskedQuestionsSectionService } from '~entities/frequently-asked-questions/frequently-asked-questions-section/frequently-asked-questions-section.service'
+import { FrequentlyAskedQuestionsSectionParameters } from '~entities/frequently-asked-questions/frequently-asked-questions-section/frequently-asked-questions-section.type'
 import { FrequentlyAskedQuestion } from '~entities/frequently-asked-questions/frequently-asked-questions.type'
 
 @Component({
@@ -14,6 +15,12 @@ import { FrequentlyAskedQuestion } from '~entities/frequently-asked-questions/fr
 })
 export class FrequentlyAskedQuestionsSectionComponent implements OnInit {
   public frequentlyAskedQuestions: ReadonlyArray<FrequentlyAskedQuestion> = []
+  public sectionParameters: FrequentlyAskedQuestionsSectionParameters = {
+    list: {
+      emptyStateText: 'No data.',
+    },
+    title: 'No data',
+  }
 
   private readonly destroyRef = inject(DestroyRef)
 
@@ -23,11 +30,17 @@ export class FrequentlyAskedQuestionsSectionComponent implements OnInit {
   ) {}
 
   public ngOnInit(): void {
-    this.frequentlyAskedQuestionsSectionService.getFrequentlyAskedQuestions()
+    this.frequentlyAskedQuestionsSectionService.readSectionParameters()
       .pipe(takeUntilDestroyed(this.destroyRef))
-      .subscribe((frequentlyAskedQuestions: ReadonlyArray<FrequentlyAskedQuestion>): void => {
-        this.frequentlyAskedQuestions = frequentlyAskedQuestions
+      .subscribe((sectionParameters: FrequentlyAskedQuestionsSectionParameters): void => {
+        this.sectionParameters = sectionParameters
         this.cdr.markForCheck()
       })
+      this.frequentlyAskedQuestionsSectionService.readFrequentlyAskedQuestions()
+        .pipe(takeUntilDestroyed(this.destroyRef))
+        .subscribe((frequentlyAskedQuestions: ReadonlyArray<FrequentlyAskedQuestion>): void => {
+          this.frequentlyAskedQuestions = frequentlyAskedQuestions
+          this.cdr.markForCheck()
+        })
   }
 }

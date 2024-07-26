@@ -12,5 +12,8 @@ import { FrequentlyAskedQuestion } from '~entities/frequently-asked-questions/fr
 })
 export class FrequentlyAskedQuestionsListComponent {
   @Input()
+  public emptyStateText = 'No data'
+
+  @Input()
   public frequentlyAskedQuestions: ReadonlyArray<FrequentlyAskedQuestion> = []
 }
