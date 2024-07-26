@@ -2,10 +2,10 @@
   @for (questionItem of frequentlyAskedQuestions; track questionItem.question) {
     <p-accordionTab [header]="questionItem.question">
         <p>
-          {{ questionItem.answer }}
+          {{questionItem.answer}}
         </p>
     </p-accordionTab>
   } @empty {
-    <p>Список часто задаваемых вопросов пуст.</p>
+    <p>{{emptyStateText}}</p>
   }
 </p-accordion>

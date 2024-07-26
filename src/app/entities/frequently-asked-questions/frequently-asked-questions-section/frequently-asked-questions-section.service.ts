@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http'
 import { Injectable } from '@angular/core'
 import { Observable } from 'rxjs'
-import { FrequentlyAskedQuestionSectionParameters } from '~entities/frequently-asked-questions/frequently-asked-questions-section/frequently-asked-questions-section.type'
+import { FrequentlyAskedQuestionsSectionParameters } from '~entities/frequently-asked-questions/frequently-asked-questions-section/frequently-asked-questions-section.type'
 import { FrequentlyAskedQuestionsService } from '~entities/frequently-asked-questions/frequently-asked-questions.service'
 import { FrequentlyAskedQuestion } from '~entities/frequently-asked-questions/frequently-asked-questions.type'
 
@@ -14,12 +14,12 @@ export class FrequentlyAskedQuestionsSectionService {
     private readonly httpClient: HttpClient,
   ) {}
 
-  public getFrequentlyAskedQuestions(): Observable<ReadonlyArray<FrequentlyAskedQuestion>> {
-    return this.frequentlyAskedQuestionsService.getFrequentlyAskedQuestions()
+  public readFrequentlyAskedQuestions(): Observable<ReadonlyArray<FrequentlyAskedQuestion>> {
+    return this.frequentlyAskedQuestionsService.readList()
   }
 
-  public getSectionParameters(): Observable<FrequentlyAskedQuestionSectionParameters> {
-    return this.httpClient.get<FrequentlyAskedQuestionSectionParameters>(frequentlyAskedQuestionsSectionURL)
+  public readSectionParameters(): Observable<FrequentlyAskedQuestionsSectionParameters> {
+    return this.httpClient.get<FrequentlyAskedQuestionsSectionParameters>(frequentlyAskedQuestionsSectionURL)
   }
 }
 

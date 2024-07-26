@@ -1,4 +1,7 @@
 <section>
-  <h1>Часто задаваемые вопросы</h1>
-  <app-frequently-asked-questions-list [frequentlyAskedQuestions]="frequentlyAskedQuestions"/>
+  <h1>{{sectionParameters.title}}</h1>
+  <app-frequently-asked-questions-list
+    [emptyStateText]="sectionParameters.list.emptyStateText"
+    [frequentlyAskedQuestions]="frequentlyAskedQuestions"
+  />
 </section>

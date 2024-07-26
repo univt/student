@@ -1,4 +1,4 @@
-export interface FrequentlyAskedQuestionSectionParameters {
+export interface FrequentlyAskedQuestionsSectionParameters {
   readonly list: {
     readonly emptyStateText: string
   }

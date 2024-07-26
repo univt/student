@@ -26,7 +26,7 @@ describe('FrequentlyAskedQuestionsSectionService', (): void => {
 })
 
 class FrequentlyAskedQuestionsStubService {
-  public getFrequentlyAskedQuestions(): Observable<ReadonlyArray<FrequentlyAskedQuestion>> {
+  public readList(): Observable<ReadonlyArray<FrequentlyAskedQuestion>> {
     const list: ReadonlyArray<FrequentlyAskedQuestion> = [
       {
         answer: 'Ответ на вопрос №1',
@@ -40,4 +40,3 @@ class FrequentlyAskedQuestionsStubService {
     return of(list)
   }
 }
-
