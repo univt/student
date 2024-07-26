@@ -1,5 +1,4 @@
 import { HttpClient } from '@angular/common/http'
-import { TestBed } from '@angular/core/testing'
 import { FrequentlyAskedQuestionsService } from './frequently-asked-questions.service'
 
 describe('FrequentlyAskedQuestionsService', (): void => {
@@ -7,8 +6,6 @@ describe('FrequentlyAskedQuestionsService', (): void => {
   let service: FrequentlyAskedQuestionsService
 
   beforeEach((): void => {
-    TestBed.configureTestingModule({})
-
     httpClientSpy = jasmine.createSpyObj('HttpClient', ['get'])
     service = new FrequentlyAskedQuestionsService(httpClientSpy)
   })
