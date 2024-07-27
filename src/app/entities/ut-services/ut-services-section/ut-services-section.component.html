@@ -1,4 +1,7 @@
 <section>
-  <h1>Услуги</h1>
-  <app-price-list/>
+  <h1>{{sectionParameters.title}}</h1>
+  <app-price-list
+    [emptyStateText]="sectionParameters.list.emptyStateText"
+    [uTServices]="uTServices"
+  />
 </section>

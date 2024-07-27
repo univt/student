@@ -11,7 +11,7 @@ export class UTServicesService {
     private readonly httpClient: HttpClient,
   ) {}
 
-  public getUTServices(): Observable<ReadonlyArray<UTService>> {
+  public readList(): Observable<ReadonlyArray<UTService>> {
     return this.httpClient.get<ReadonlyArray<UTService>>(uTServicesURL)
   }
 }
