@@ -10,8 +10,6 @@ describe('ImprovementsAndGuaranteesSectionComponent', (): void => {
 
   beforeEach(async (): Promise<void> => {
     await TestBed.configureTestingModule({
-      imports: [ImprovementsAndGuaranteesSectionComponent],
-      // Provide the component-under-test and the dependent service.
       providers: [
         ImprovementsAndGuaranteesSectionComponent,
         { provide: ImprovementsAndGuaranteesSectionService, useClass: ImprovementsAndGuaranteesSectionStubService },

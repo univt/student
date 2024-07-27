@@ -11,8 +11,6 @@ describe('UTContactsSectionComponent', (): void => {
 
   beforeEach(async (): Promise<void> => {
     await TestBed.configureTestingModule({
-      imports: [UTContactsSectionComponent],
-      // Provide the component-under-test and the dependent service.
       providers: [
         UTContactsSectionComponent,
         { provide: UTContactsSectionService, useClass: UTContactsSectionStubService },
