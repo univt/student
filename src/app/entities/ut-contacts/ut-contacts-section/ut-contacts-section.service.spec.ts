@@ -6,7 +6,7 @@ import { UTContactsService } from '~entities/ut-contacts/ut-contacts.service'
 import { UTContact, UTContactCodename } from '~entities/ut-contacts/ut-contacts.type'
 import { UTContactsSectionService } from './ut-contacts-section.service'
 
-describe('UTContactsSectionService', () => {
+describe('UTContactsSectionService', (): void => {
   let service: UTContactsSectionService
 
   beforeEach((): void => {
