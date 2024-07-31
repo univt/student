@@ -6,6 +6,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core'
   selector: 'app-instagram-icon',
   standalone: true,
   styleUrl: './instagram-icon.component.sass',
-  templateUrl: './instagram-icon.component.html',
+  templateUrl: './instagram-icon.component.svg',
 })
 export class InstagramIconComponent {}
