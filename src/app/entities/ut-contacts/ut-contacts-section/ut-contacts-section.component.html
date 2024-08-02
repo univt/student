@@ -1,0 +1,21 @@
+<section>
+  <h1>{{sectionParameters.title}}</h1>
+
+  <div class="app-contacts-container">
+    @for (contact of contacts; track contact.codename) {
+      <ng-container *ngTemplateOutlet="contactTemplate; context: { $implicit: contact }"></ng-container>
+    } @empty {
+      <p>{{sectionParameters.list.emptyStateText}}</p>
+    }
+  </div>
+</section>
+
+
+<ng-template #contactTemplate let-contact>
+  <a class="app-contact-a" href="{{contact.url}}" rel="noopener noreferrer" target="_blank">
+    <span class="app-icon-container">
+      <ng-container *ngComponentOutlet="contact.iconComponent"/>
+    </span>
+    <span>{{contact.name}}</span>
+  </a>
+</ng-template>

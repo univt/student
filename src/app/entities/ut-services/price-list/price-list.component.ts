@@ -1,8 +1,9 @@
-import { Component } from '@angular/core'
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core'
 import { CardModule } from 'primeng/card'
 import { UTService } from '~entities/ut-services/ut-services.type'
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [CardModule],
   selector: 'app-price-list',
   standalone: true,
@@ -10,14 +11,9 @@ import { UTService } from '~entities/ut-services/ut-services.type'
   templateUrl: './price-list.component.html',
 })
 export class PriceListComponent {
-  public readonly services: ReadonlyArray<UTService> = [
-    {
-      name: 'Диплом',
-      priceDescription: 'от 6000 ₽',
-    },
-    {
-      name: 'Курсовая работа',
-      priceDescription: 'от 2700 ₽',
-    },
-  ]
+  @Input()
+  public emptyStateText = 'No data.'
+
+  @Input()
+  public uTServices: ReadonlyArray<UTService> = []
 }
