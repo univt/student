@@ -1,9 +1,9 @@
 <p-accordion>
   @for (questionItem of frequentlyAskedQuestions; track questionItem.question) {
     <p-accordionTab [header]="questionItem.question">
-        <p>
-          {{questionItem.answer}}
-        </p>
+      <p>
+        {{questionItem.answer}}
+      </p>
     </p-accordionTab>
   } @empty {
     <p>{{emptyStateText}}</p>
