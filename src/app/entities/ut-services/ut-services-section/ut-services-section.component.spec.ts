@@ -1,9 +1,9 @@
 import { Component } from '@angular/core'
 import { ComponentFixture, TestBed } from '@angular/core/testing'
 import { Observable, of } from 'rxjs'
+import { UTServiceCard } from '~entities/ut-services/price-list/ut-service-card.type'
 import { UTServicesSectionService } from '~entities/ut-services/ut-services-section/ut-services-section.service'
 import { UTServicesSectionParameters } from '~entities/ut-services/ut-services-section/ut-services-section.type'
-import { UTService } from '~entities/ut-services/ut-services.type'
 import { UTServicesSectionComponent } from './ut-services-section.component'
 
 describe('UTServicesSectionComponent', (): void => {
@@ -49,13 +49,15 @@ class UTServicesSectionStubService {
     return of(sectionParameters)
   }
 
-  public readUTServices(): Observable<ReadonlyArray<UTService>> {
-    const services: ReadonlyArray<UTService> = [
+  public readUTServices(): Observable<ReadonlyArray<UTServiceCard>> {
+    const services: ReadonlyArray<UTServiceCard> = [
       {
+        contactURL: 'service1',
         name: 'Услуга 1',
         priceDescription: 'от 4200 ₽',
       },
       {
+        contactURL: 'service2',
         name: 'Услуга 2',
         priceDescription: 'от 1024 ₽',
       },

@@ -1,7 +1,5 @@
-export interface UTService {
-  readonly codename: string
+export interface UTServiceCard {
   readonly contactURL: string
   readonly name: string
-  readonly order: number
   readonly priceDescription: string
 }

@@ -2,8 +2,8 @@ import { provideHttpClient } from '@angular/common/http'
 import { provideHttpClientTesting } from '@angular/common/http/testing'
 import { TestBed } from '@angular/core/testing'
 import { Observable, of } from 'rxjs'
+import { UTServiceCard } from '~entities/ut-services/price-list/ut-service-card.type'
 import { UTServicesService } from '~entities/ut-services/ut-services.service'
-import { UTService } from '~entities/ut-services/ut-services.type'
 import { UTServicesSectionService } from './ut-services-section.service'
 
 describe('UTServicesSectionService', (): void => {
@@ -26,13 +26,15 @@ describe('UTServicesSectionService', (): void => {
 })
 
 class UTServicesStubService {
-  public readList(): Observable<ReadonlyArray<UTService>> {
-    const services: ReadonlyArray<UTService> = [
+  public readList(): Observable<ReadonlyArray<UTServiceCard>> {
+    const services: ReadonlyArray<UTServiceCard> = [
       {
+        contactURL: 'service1',
         name: 'Услуга 1',
         priceDescription: 'от 4200 ₽',
       },
       {
+        contactURL: 'service2',
         name: 'Услуга 2',
         priceDescription: 'от 1024 ₽',
       },

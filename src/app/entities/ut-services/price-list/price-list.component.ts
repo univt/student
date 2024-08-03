@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core'
 import { CardModule } from 'primeng/card'
-import { UTService } from '~entities/ut-services/ut-services.type'
+import { UTServiceCard } from '~entities/ut-services/price-list/ut-service-card.type'
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -15,5 +15,5 @@ export class PriceListComponent {
   public emptyStateText = 'No data.'
 
   @Input()
-  public uTServices: ReadonlyArray<UTService> = []
+  public uTServices: ReadonlyArray<UTServiceCard> = []
 }
