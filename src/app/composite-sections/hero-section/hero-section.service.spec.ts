@@ -1,13 +1,13 @@
 import { HttpClient } from '@angular/common/http'
-import { MottoSectionService } from './motto-section.service'
+import { HeroSectionService } from './hero-section.service'
 
-describe('MottoSectionService', (): void => {
+describe('HeroSectionService', (): void => {
   let httpClientSpy: jasmine.SpyObj<HttpClient>
-  let service: MottoSectionService
+  let service: HeroSectionService
 
   beforeEach((): void => {
     httpClientSpy = jasmine.createSpyObj('HttpClient', ['get'])
-    service = new MottoSectionService(httpClientSpy)
+    service = new HeroSectionService(httpClientSpy)
   })
 
   it('should be created', (): void => {
