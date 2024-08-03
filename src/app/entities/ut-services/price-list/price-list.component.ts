@@ -1,19 +1,26 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core'
+import { ButtonModule } from 'primeng/button'
 import { CardModule } from 'primeng/card'
-import { UTService } from '~entities/ut-services/ut-services.type'
+import { UTServiceCard } from '~entities/ut-services/price-list/ut-service-card.type'
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CardModule],
+  imports: [
+    ButtonModule,
+    CardModule,
+  ],
   selector: 'app-price-list',
   standalone: true,
   styleUrl: './price-list.component.sass',
   templateUrl: './price-list.component.html',
 })
 export class PriceListComponent {
-  @Input()
+  @Input({ required: true })
   public emptyStateText = 'No data.'
 
-  @Input()
-  public uTServices: ReadonlyArray<UTService> = []
+  @Input({ required: true })
+  public openChatButtonText = 'No data'
+
+  @Input({ required: true })
+  public uTServices: ReadonlyArray<UTServiceCard> = []
 }

@@ -1,9 +1,9 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, DestroyRef, inject, OnInit } from '@angular/core'
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
 import { PriceListComponent } from '~entities/ut-services/price-list/price-list.component'
+import { UTServiceCard } from '~entities/ut-services/price-list/ut-service-card.type'
 import { UTServicesSectionService } from '~entities/ut-services/ut-services-section/ut-services-section.service'
 import { UTServicesSectionParameters } from '~entities/ut-services/ut-services-section/ut-services-section.type'
-import { UTService } from '~entities/ut-services/ut-services.type'
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -14,10 +14,11 @@ import { UTService } from '~entities/ut-services/ut-services.type'
   templateUrl: './ut-services-section.component.html',
 })
 export class UTServicesSectionComponent implements OnInit {
-  public uTServices: ReadonlyArray<UTService> = []
-  public sectionParameters: UTServicesSectionParameters = {
+  protected uTServices: ReadonlyArray<UTServiceCard> = []
+  protected sectionParameters: UTServicesSectionParameters = {
     list: {
       emptyStateText: 'No data.',
+      openChatButtonText: 'No data',
     },
     title: 'No data',
   }
@@ -38,7 +39,7 @@ export class UTServicesSectionComponent implements OnInit {
       })
     this.uTServicesSectionService.readUTServices()
       .pipe(takeUntilDestroyed(this.destroyRef))
-      .subscribe((uTServices: ReadonlyArray<UTService>): void => {
+      .subscribe((uTServices: ReadonlyArray<UTServiceCard>): void => {
         this.uTServices = uTServices
         this.cdr.markForCheck()
       })

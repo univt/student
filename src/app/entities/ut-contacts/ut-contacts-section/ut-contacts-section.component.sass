@@ -1,4 +1,7 @@
+@import '../../../ui-kit/layout/layout'
+
 :host
+  // TODO: Move to `color-palette-variables.sass`.
   --color-golden: #ffd700
   --color-violet: #3e13af
   --color-violet-dark-8: #310f8c
@@ -10,6 +13,13 @@
   --link-color-hover: var(--color-accent)
 
   --size: 24px
+
+:host
+  display: block
+
+.app-section
+  @include app-layout-horizontal-paddings-mixin
+  padding-bottom: 40px
 
 .app-contacts-container
   display: flex

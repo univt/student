@@ -1,7 +1,10 @@
 <section>
-  <h1>{{sectionParameters.title}}</h1>
+  <div class="app-title-container">
+    <h1>{{sectionParameters.title}}</h1>
+  </div>
   <app-price-list
     [emptyStateText]="sectionParameters.list.emptyStateText"
+    [openChatButtonText]="sectionParameters.list.openChatButtonText"
     [uTServices]="uTServices"
   />
 </section>
