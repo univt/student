@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http'
 import { Injectable } from '@angular/core'
 import { Observable } from 'rxjs'
-import { UTContact } from '~entities/ut-contacts/ut-contacts.type'
+import { UTContactForAPI } from '~entities/ut-contacts/ut-contacts.type'
 
 @Injectable({
   providedIn: 'root',
@@ -11,8 +11,8 @@ export class UTContactsService {
     private readonly httpClient: HttpClient,
   ) {}
 
-  public readList(): Observable<ReadonlyArray<UTContact>> {
-    return this.httpClient.get<ReadonlyArray<UTContact>>(uTContactsURL)
+  public readList(): Observable<ReadonlyArray<UTContactForAPI>> {
+    return this.httpClient.get<ReadonlyArray<UTContactForAPI>>(uTContactsURL)
   }
 }
 

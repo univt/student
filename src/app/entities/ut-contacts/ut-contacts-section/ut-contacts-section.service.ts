@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core'
 import { Observable } from 'rxjs'
 import { UTContactsSectionParameters } from '~entities/ut-contacts/ut-contacts-section/ut-contacts-section.type'
 import { UTContactsService } from '~entities/ut-contacts/ut-contacts.service'
-import { UTContact } from '~entities/ut-contacts/ut-contacts.type'
+import { UTContactForAPI } from '~entities/ut-contacts/ut-contacts.type'
 
 @Injectable({
   providedIn: 'root',
@@ -18,7 +18,7 @@ export class UTContactsSectionService {
     return this.httpClient.get<UTContactsSectionParameters>(uTContactsSectionURL)
   }
 
-  public readUTContacts(): Observable<ReadonlyArray<UTContact>> {
+  public readUTContacts(): Observable<ReadonlyArray<UTContactForAPI>> {
     return this.uTContactsService.readList()
   }
 }

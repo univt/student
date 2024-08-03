@@ -4,7 +4,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
 import { IconComponentType, uTContactIconComponentsMap } from '~entities/ut-contacts/icons/ut-contacts-icon-components.util'
 import { UTContactsSectionService } from '~entities/ut-contacts/ut-contacts-section/ut-contacts-section.service'
 import { UTContactsSectionParameters } from '~entities/ut-contacts/ut-contacts-section/ut-contacts-section.type'
-import { UTContact, UTContactCodename } from '~entities/ut-contacts/ut-contacts.type'
+import { UTContactForAPI, UTContactCodename } from '~entities/ut-contacts/ut-contacts.type'
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -40,18 +40,18 @@ export class UTContactsSectionComponent implements OnInit {
       })
     this.uTContactsSectionService.readUTContacts()
       .pipe(takeUntilDestroyed(this.destroyRef))
-      .subscribe((contacts: ReadonlyArray<UTContact>): void => {
-        this.contacts = contacts.map(prepareUTContactForTemplate)
+      .subscribe((contacts: ReadonlyArray<UTContactForAPI>): void => {
+        this.contacts = prepareUTContactsForTemplate(contacts)
         this.cdr.markForCheck()
       })
   }
 }
 
 interface UTContactForTemplate {
-  readonly codename: UTContact['codename']
+  readonly codename: UTContactForAPI['codename']
   readonly iconComponent: IconComponentType
-  readonly name: UTContact['name']
-  readonly url: UTContact['url']
+  readonly name: UTContactForAPI['name']
+  readonly url: UTContactForAPI['url']
 }
 
 function getIconComponent(uTContactCodename: UTContactCodename): IconComponentType | never {
@@ -62,9 +62,31 @@ function getIconComponent(uTContactCodename: UTContactCodename): IconComponentTy
   return iconComponent
 }
 
-function prepareUTContactForTemplate(contact: UTContact): UTContactForTemplate {
+function prepareUTContactForTemplate({
+  codename,
+  name,
+  url,
+}: UTContactForAPI): UTContactForTemplate {
   return {
-    ...contact,
-    iconComponent: getIconComponent(contact.codename),
+    codename,
+    iconComponent: getIconComponent(codename),
+    name,
+    url,
   }
+}
+
+function prepareUTContactsForTemplate(uTContacts: ReadonlyArray<UTContactForAPI>): ReadonlyArray<UTContactForTemplate> {
+  const uTContactsMap = new Map<number, UTContactForTemplate>()
+  uTContacts.forEach((contact: UTContactForAPI): void => {
+    uTContactsMap.set(contact.order, prepareUTContactForTemplate(contact))
+  })
+  const result: UTContactForTemplate[] = []
+  for (let i = 1; i <= uTContactsMap.size; ++i) {
+    const contact = uTContactsMap.get(i)
+    if (!contact) {
+      throw Error('Wrong data. Check the values of `order` properties.')
+    }
+    result.push(contact)
+  }
+  return result
 }
