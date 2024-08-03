@@ -1,0 +1,27 @@
+@import '../layout'
+
+:host
+  --section-background-image: radial-gradient(at 14.496613514150013% 75.33872579507313%, hsla(39.85074626865671, 100%, 73.72549019607844%, 1) 0%, hsla(39.85074626865671, 100%, 73.72549019607844%, 0) 100%), radial-gradient(at 58.663390639479275% 32.18231939020202%, hsla(338.82352941176464, 100%, 80%, 1) 0%, hsla(338.82352941176464, 100%, 80%, 0) 100%), radial-gradient(at 91.50385388833074% 63.865131921793704%, hsla(219.8507462686567, 100%, 73.72549019607844%, 1) 0%, hsla(219.8507462686567, 100%, 73.72549019607844%, 0) 100%), radial-gradient(at 52.817991094152546% 38.032710889352%, hsla(39.85074626865671, 100%, 73.72549019607844%, 1) 0%, hsla(39.85074626865671, 100%, 73.72549019607844%, 0) 100%), radial-gradient(at 17.716896734142917% 84.65387610247606%, hsla(338.82352941176464, 100%, 80%, 1) 0%, hsla(338.82352941176464, 100%, 80%, 0) 100%), radial-gradient(at 16.285946242166904% 95.0826882889457%, hsla(219.8507462686567, 100%, 73.72549019607844%, 1) 0%, hsla(219.8507462686567, 100%, 73.72549019607844%, 0) 100%)
+
+:host
+  display: block
+
+.app-header-container
+  display: flex
+  align-items: center
+  flex-direction: column
+  justify-content: space-between
+  @include app-layout-horizontal-paddings-mixin
+  padding-top: 40px
+  padding-bottom: 40px
+  height: 400px
+  background-image: var(--section-background-image)
+
+.app-title
+  margin: 0
+
+.app-subtitle
+  margin: 0
+
+.app-motto
+  margin: 0

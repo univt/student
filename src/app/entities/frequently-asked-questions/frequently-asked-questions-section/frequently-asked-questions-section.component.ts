@@ -14,8 +14,8 @@ import { FrequentlyAskedQuestion } from '~entities/frequently-asked-questions/fr
   templateUrl: './frequently-asked-questions-section.component.html',
 })
 export class FrequentlyAskedQuestionsSectionComponent implements OnInit {
-  public frequentlyAskedQuestions: ReadonlyArray<FrequentlyAskedQuestion> = []
-  public sectionParameters: FrequentlyAskedQuestionsSectionParameters = {
+  protected frequentlyAskedQuestions: ReadonlyArray<FrequentlyAskedQuestion> = []
+  protected sectionParameters: FrequentlyAskedQuestionsSectionParameters = {
     list: {
       emptyStateText: 'No data.',
     },

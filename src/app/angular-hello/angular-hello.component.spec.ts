@@ -3,6 +3,7 @@ import { AngularHelloComponent } from './angular-hello.component'
 
 describe('AngularHelloComponent', (): void => {
   let component: AngularHelloComponent
+  let componentForTesting: AngularHelloComponentForTesting
   let fixture: ComponentFixture<AngularHelloComponent>
 
   beforeEach(async (): Promise<void> => {
@@ -13,6 +14,7 @@ describe('AngularHelloComponent', (): void => {
 
     fixture = TestBed.createComponent(AngularHelloComponent)
     component = fixture.componentInstance
+    componentForTesting = fixture.componentInstance as AngularHelloComponentForTesting
   })
 
   it('should create', (): void => {
@@ -20,7 +22,7 @@ describe('AngularHelloComponent', (): void => {
   })
 
   it(`should have the 'student' title`, (): void => {
-    expect(component.title).toEqual('student')
+    expect(componentForTesting.title).toEqual('student')
   })
 
   it('should render title', (): void => {
@@ -29,3 +31,8 @@ describe('AngularHelloComponent', (): void => {
     expect(compiled.querySelector('h1')?.textContent).toContain('Hello, student')
   })
 })
+
+// Uses as a type for getting access to `private` and `protected` methods and properties.
+class AngularHelloComponentForTesting extends AngularHelloComponent {
+  public override readonly title = 'student'
+}

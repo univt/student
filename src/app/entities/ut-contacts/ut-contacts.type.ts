@@ -1,6 +1,7 @@
-export interface UTContact {
+export interface UTContactForAPI {
   readonly codename: UTContactCodename
   readonly name: string
+  readonly order: number
   readonly url: string
 }
 

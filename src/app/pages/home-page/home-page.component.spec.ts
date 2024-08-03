@@ -17,6 +17,7 @@ describe('HomePageComponent', (): void => {
         // Stubs.
         FrequentlyAskedQuestionsSectionStubComponent,
         ImprovementsAndGuaranteesSectionStubComponent,
+        MottoSectionStubComponent,
         UTContactsSectionStubComponent,
         UTServicesSectionStubComponent,
       ],
@@ -44,6 +45,9 @@ class FrequentlyAskedQuestionsSectionStubComponent {}
 
 @Component({ selector: 'app-improvements-and-guarantees-section', standalone: true, template: '' })
 class ImprovementsAndGuaranteesSectionStubComponent {}
+
+@Component({ selector: 'app-motto-section', standalone: true, template: '' })
+class MottoSectionStubComponent {}
 
 @Component({ selector: 'app-ut-contacts-section', standalone: true, template: '' })
 class UTContactsSectionStubComponent {}

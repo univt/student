@@ -12,7 +12,7 @@ import { ImprovementsAndGuaranteesSectionParameters } from '~entities/improvemen
   templateUrl: './improvements-and-guarantees-section.component.html',
 })
 export class ImprovementsAndGuaranteesSectionComponent implements OnInit {
-  public sectionParameters: ImprovementsAndGuaranteesSectionParameters = {
+  protected sectionParameters: ImprovementsAndGuaranteesSectionParameters = {
     description: 'No data.',
     title: 'No data',
   }

@@ -26,8 +26,10 @@
     "outDir": "./dist/out-tsc",
     "paths": {
       "~app/*": ["./src/app/*"],
+      "~composite-sections/*": ["./src/app/composite-sections/*"],
       "~entities/*": ["./src/app/entities/*"],
       "~pages/*": ["./src/app/pages/*"],
+      "~ui-kit/*": ["./src/app/ui-kit/*"],
     },
     "skipLibCheck": true,
     "sourceMap": true,
