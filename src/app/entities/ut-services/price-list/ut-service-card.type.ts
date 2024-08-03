@@ -1,5 +1,8 @@
+import { UTServiceForAPI } from '~entities/ut-services/ut-services.type'
+
 export interface UTServiceCard {
-  readonly contactURL: string
-  readonly name: string
-  readonly priceDescription: string
+  readonly codename: UTServiceForAPI['codename']
+  readonly contactURL: UTServiceForAPI['contactURL']
+  readonly name: UTServiceForAPI['name']
+  readonly priceDescription: UTServiceForAPI['priceDescription']
 }

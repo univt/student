@@ -4,7 +4,7 @@ import { map, Observable } from 'rxjs'
 import { UTServiceCard } from '~entities/ut-services/price-list/ut-service-card.type'
 import { UTServicesSectionParameters } from '~entities/ut-services/ut-services-section/ut-services-section.type'
 import { UTServicesService } from '~entities/ut-services/ut-services.service'
-import { UTService } from '~entities/ut-services/ut-services.type'
+import { UTServiceForAPI } from '~entities/ut-services/ut-services.type'
 
 @Injectable({
   providedIn: 'root',
@@ -27,15 +27,17 @@ export class UTServicesSectionService {
 
 const uTServicesSectionURL = 'https://univt.github.io/student-data/data/sections/ut-services/ut-services-section.json'
 
-function prepareUTServices(uTServices: ReadonlyArray<UTService>): ReadonlyArray<UTServiceCard> {
+function prepareUTServices(uTServices: ReadonlyArray<UTServiceForAPI>): ReadonlyArray<UTServiceCard> {
   const uTServicesMap = new Map<number, UTServiceCard>()
   uTServices.forEach(({
+    codename,
     contactURL,
     name,
     order,
     priceDescription,
-  }: UTService): void => {
+  }: UTServiceForAPI): void => {
     uTServicesMap.set(order, {
+      codename,
       contactURL,
       name,
       priceDescription,

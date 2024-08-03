@@ -1,5 +1,5 @@
 <div class="app-card-list-container">
-  @for (service of uTServices; track service.name) {
+  @for (service of uTServices; track service.codename) {
     <div class="app-card-container">
       <p-card [header]="service.name" [subheader]="service.priceDescription"></p-card>
     </div>

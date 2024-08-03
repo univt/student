@@ -52,11 +52,13 @@ class UTServicesSectionStubService {
   public readUTServices(): Observable<ReadonlyArray<UTServiceCard>> {
     const services: ReadonlyArray<UTServiceCard> = [
       {
+        codename: 'service1',
         contactURL: 'service1',
         name: 'Услуга 1',
         priceDescription: 'от 4200 ₽',
       },
       {
+        codename: 'service2',
         contactURL: 'service2',
         name: 'Услуга 2',
         priceDescription: 'от 1024 ₽',
