@@ -12,7 +12,7 @@ import { InHouseExpertsSectionParameters } from '~entities/in-house-experts/in-h
   templateUrl: './in-house-experts-section.component.html',
 })
 export class InHouseExpertsSectionComponent implements OnInit {
-  public sectionParameters: InHouseExpertsSectionParameters = {
+  protected sectionParameters: InHouseExpertsSectionParameters = {
     description: 'No data.',
   }
 

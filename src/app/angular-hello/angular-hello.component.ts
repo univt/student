@@ -9,5 +9,5 @@ import { ChangeDetectionStrategy, Component } from '@angular/core'
   templateUrl: './angular-hello.component.html',
 })
 export class AngularHelloComponent {
-  public readonly title = 'student'
+  protected readonly title = 'student'
 }

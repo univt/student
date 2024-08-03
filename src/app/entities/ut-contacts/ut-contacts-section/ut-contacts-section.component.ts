@@ -16,9 +16,9 @@ import { UTContactForAPI, UTContactCodename } from '~entities/ut-contacts/ut-con
   templateUrl: './ut-contacts-section.component.html',
 })
 export class UTContactsSectionComponent implements OnInit {
-  public contacts: ReadonlyArray<UTContactForTemplate> = []
+  protected contacts: ReadonlyArray<UTContactForTemplate> = []
 
-  public sectionParameters: UTContactsSectionParameters = {
+  protected sectionParameters: UTContactsSectionParameters = {
     list: {
       emptyStateText: 'No data.',
     },

@@ -11,9 +11,9 @@ import { UTServiceCard } from '~entities/ut-services/price-list/ut-service-card.
   templateUrl: './price-list.component.html',
 })
 export class PriceListComponent {
-  @Input()
+  @Input({ required: true })
   public emptyStateText = 'No data.'
 
-  @Input()
+  @Input({ required: true })
   public uTServices: ReadonlyArray<UTServiceCard> = []
 }

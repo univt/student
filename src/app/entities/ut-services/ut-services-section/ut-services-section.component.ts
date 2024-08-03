@@ -14,8 +14,8 @@ import { UTServicesSectionParameters } from '~entities/ut-services/ut-services-s
   templateUrl: './ut-services-section.component.html',
 })
 export class UTServicesSectionComponent implements OnInit {
-  public uTServices: ReadonlyArray<UTServiceCard> = []
-  public sectionParameters: UTServicesSectionParameters = {
+  protected uTServices: ReadonlyArray<UTServiceCard> = []
+  protected sectionParameters: UTServicesSectionParameters = {
     list: {
       emptyStateText: 'No data.',
     },

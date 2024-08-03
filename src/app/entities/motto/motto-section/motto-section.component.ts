@@ -12,7 +12,7 @@ import { MottoSectionParameters } from '~entities/motto/motto-section/motto-sect
   templateUrl: './motto-section.component.html',
 })
 export class MottoSectionComponent implements OnInit {
-  public sectionParameters: MottoSectionParameters = {
+  protected sectionParameters: MottoSectionParameters = {
     description: 'No data.',
   }
 
