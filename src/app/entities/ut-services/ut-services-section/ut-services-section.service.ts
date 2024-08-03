@@ -28,18 +28,26 @@ export class UTServicesSectionService {
 const uTServicesSectionURL = 'https://univt.github.io/student-data/data/sections/ut-services/ut-services-section.json'
 
 function prepareUTServices(uTServices: ReadonlyArray<UTService>): ReadonlyArray<UTServiceCard> {
-  return uTServices
-    .map((uTServices: UTService) => ({ ...uTServices }))
-    .sort((a: UTService, b: UTService): number => a.order - b.order)
-    .map(({
+  const uTServicesMap = new Map<number, UTServiceCard>()
+  uTServices.forEach(({
+    contactURL,
+    name,
+    order,
+    priceDescription,
+  }: UTService): void => {
+    uTServicesMap.set(order, {
       contactURL,
       name,
       priceDescription,
-    }: UTService): UTServiceCard => {
-      return {
-        contactURL,
-        name,
-        priceDescription,
-      }
     })
+  })
+  const result: UTServiceCard[] = []
+  for (let i = 1; i <= uTServicesMap.size; ++i) {
+    const card = uTServicesMap.get(i)
+    if (!card) {
+      throw Error('Wrong data. Check the values of `order` properties.')
+    }
+    result.push(card)
+  }
+  return result
 }
