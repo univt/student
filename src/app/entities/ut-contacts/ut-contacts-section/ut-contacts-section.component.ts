@@ -1,6 +1,7 @@
 import { NgComponentOutlet, NgTemplateOutlet } from '@angular/common'
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, DestroyRef, inject, OnInit } from '@angular/core'
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
+import { newDevError } from '~app/dev/dev-error.util'
 import { IconComponentType, uTContactIconComponentsMap } from '~entities/ut-contacts/icons/ut-contacts-icon-components.util'
 import { UTContactsSectionService } from '~entities/ut-contacts/ut-contacts-section/ut-contacts-section.service'
 import { UTContactsSectionParameters } from '~entities/ut-contacts/ut-contacts-section/ut-contacts-section.type'
@@ -57,7 +58,7 @@ interface UTContactForTemplate {
 function getIconComponent(uTContactCodename: UTContactCodename): IconComponentType | never {
   const iconComponent = uTContactIconComponentsMap.get(uTContactCodename)
   if (!iconComponent) {
-    throw new Error(`Component for ${uTContactCodename} UTContactCodename does not exist.`)
+    throw newDevError(`Component for ${uTContactCodename} UTContactCodename does not exist.`)
   }
   return iconComponent
 }
@@ -84,7 +85,7 @@ function prepareUTContactsForTemplate(uTContacts: ReadonlyArray<UTContactForAPI>
   for (let i = 1; i <= uTContactsMap.size; ++i) {
     const contact = uTContactsMap.get(i)
     if (!contact) {
-      throw Error('Wrong data. Check the values of `order` properties.')
+      throw newDevError('Wrong data. Check the values of `order` properties.')
     }
     result.push(contact)
   }

@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http'
 import { Injectable } from '@angular/core'
 import { map, Observable } from 'rxjs'
+import { newDevError } from '~app/dev/dev-error.util'
 import { UTServiceCard } from '~entities/ut-services/price-list/ut-service-card.type'
 import { UTServicesSectionParameters } from '~entities/ut-services/ut-services-section/ut-services-section.type'
 import { UTServicesService } from '~entities/ut-services/ut-services.service'
@@ -47,7 +48,7 @@ function prepareUTServices(uTServices: ReadonlyArray<UTServiceForAPI>): Readonly
   for (let i = 1; i <= uTServicesMap.size; ++i) {
     const card = uTServicesMap.get(i)
     if (!card) {
-      throw Error('Wrong data. Check the values of `order` properties.')
+      throw newDevError('Wrong data. Check the values of `order` properties.')
     }
     result.push(card)
   }
