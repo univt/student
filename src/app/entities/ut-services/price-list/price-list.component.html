@@ -1,7 +1,21 @@
 <div class="app-card-list-container">
   @for (service of uTServices; track service.codename) {
     <div class="app-card-container">
-      <p-card [header]="service.name" [subheader]="service.priceDescription"></p-card>
+      <p-card
+        [header]="service.name"
+        [subheader]="service.priceDescription"
+      >
+        <a
+          [href]="service.contactURL"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <p-button
+            [label]="openChatButtonText"
+            icon="pi pi-comments"
+          />
+        </a>
+      </p-card>
     </div>
   } @empty {
     <p>{{emptyStateText}}</p>
