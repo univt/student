@@ -45,6 +45,7 @@
   },
   "scripts": {
     "build": "ng build",
+    "build:gh-pages": "ng build --output-path docs --base-href /student/browser/",
     "lint": "ng lint",
     "ng": "ng",
     "start": "ng serve",
