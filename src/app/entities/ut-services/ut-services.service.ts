@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http'
 import { Injectable } from '@angular/core'
 import { Observable } from 'rxjs'
-import { UTService } from '~entities/ut-services/ut-services.type'
+import { UTServiceForAPI } from '~entities/ut-services/ut-services.type'
 
 @Injectable({
   providedIn: 'root',
@@ -11,8 +11,8 @@ export class UTServicesService {
     private readonly httpClient: HttpClient,
   ) {}
 
-  public readList(): Observable<ReadonlyArray<UTService>> {
-    return this.httpClient.get<ReadonlyArray<UTService>>(uTServicesURL)
+  public readList(): Observable<ReadonlyArray<UTServiceForAPI>> {
+    return this.httpClient.get<ReadonlyArray<UTServiceForAPI>>(uTServicesURL)
   }
 }
 

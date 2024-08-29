@@ -11,9 +11,9 @@ import { FrequentlyAskedQuestion } from '~entities/frequently-asked-questions/fr
   templateUrl: './frequently-asked-questions-list.component.html',
 })
 export class FrequentlyAskedQuestionsListComponent {
-  @Input()
+  @Input({ required: true })
   public emptyStateText = 'No data'
 
-  @Input()
+  @Input({ required: true })
   public frequentlyAskedQuestions: ReadonlyArray<FrequentlyAskedQuestion> = []
 }
