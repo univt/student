@@ -12,8 +12,8 @@ export class UTContactsService {
   ) {}
 
   public readList(): Observable<readonly UTContactForAPI[]> {
-    return this.httpClient.get<readonly UTContactForAPI[]>(uTContactsURL)
+    return this.httpClient.get<readonly UTContactForAPI[]>(utContactsURL)
   }
 }
 
-const uTContactsURL = 'https://univt.github.io/student-data/data/entities/ut-contacts/ut-contacts.json'
+const utContactsURL = 'https://univt.github.io/student-data/data/entities/ut-contacts/ut-contacts.json'

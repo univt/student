@@ -13,31 +13,31 @@ import { UTServiceForAPI } from '~entities/ut-services/ut-services.type'
 export class UTServicesSectionService {
   constructor(
     private readonly httpClient: HttpClient,
-    private readonly uTServicesService: UTServicesService,
+    private readonly utServicesService: UTServicesService,
   ) {}
 
   public readSectionParameters(): Observable<UTServicesSectionParameters> {
-    return this.httpClient.get<UTServicesSectionParameters>(uTServicesSectionURL)
+    return this.httpClient.get<UTServicesSectionParameters>(utServicesSectionURL)
   }
 
   public readUTServices(): Observable<readonly UTServiceCard[]> {
-    return this.uTServicesService.readList()
+    return this.utServicesService.readList()
       .pipe(map(prepareUTServices))
   }
 }
 
-const uTServicesSectionURL = 'https://univt.github.io/student-data/data/sections/ut-services/ut-services-section.json'
+const utServicesSectionURL = 'https://univt.github.io/student-data/data/sections/ut-services/ut-services-section.json'
 
-function prepareUTServices(uTServices: readonly UTServiceForAPI[]): readonly UTServiceCard[] {
-  const uTServicesMap = new Map<number, UTServiceCard>()
-  uTServices.forEach(({
+function prepareUTServices(utServices: readonly UTServiceForAPI[]): readonly UTServiceCard[] {
+  const utServicesMap = new Map<number, UTServiceCard>()
+  utServices.forEach(({
     codename,
     contactURL,
     name,
     order,
     priceDescription,
   }: UTServiceForAPI): void => {
-    uTServicesMap.set(order, {
+    utServicesMap.set(order, {
       codename,
       contactURL,
       name,
@@ -45,8 +45,8 @@ function prepareUTServices(uTServices: readonly UTServiceForAPI[]): readonly UTS
     })
   })
   const result: UTServiceCard[] = []
-  for (let i = 1; i <= uTServicesMap.size; ++i) {
-    const card = uTServicesMap.get(i)
+  for (let i = 1; i <= utServicesMap.size; ++i) {
+    const card = utServicesMap.get(i)
     if (!card) {
       throw newDevError('Wrong data. Check the values of `order` properties.')
     }

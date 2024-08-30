@@ -4,7 +4,7 @@ import { UTContactCodename } from '~entities/ut-contacts/ut-contacts.type'
 
 export type IconComponentType = typeof InstagramIconComponent | typeof VKIconComponent
 
-export const uTContactIconComponentsMap = new Map<UTContactCodename, IconComponentType>([
+export const utContactIconComponentsMap = new Map<UTContactCodename, IconComponentType>([
   [UTContactCodename.Instagram, InstagramIconComponent],
   [UTContactCodename.VK, VKIconComponent],
 ])
