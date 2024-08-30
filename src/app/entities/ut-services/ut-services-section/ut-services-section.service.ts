@@ -20,7 +20,7 @@ export class UTServicesSectionService {
     return this.httpClient.get<UTServicesSectionParameters>(uTServicesSectionURL)
   }
 
-  public readUTServices(): Observable<ReadonlyArray<UTServiceCard>> {
+  public readUTServices(): Observable<readonly UTServiceCard[]> {
     return this.uTServicesService.readList()
       .pipe(map(prepareUTServices))
   }
@@ -28,7 +28,7 @@ export class UTServicesSectionService {
 
 const uTServicesSectionURL = 'https://univt.github.io/student-data/data/sections/ut-services/ut-services-section.json'
 
-function prepareUTServices(uTServices: ReadonlyArray<UTServiceForAPI>): ReadonlyArray<UTServiceCard> {
+function prepareUTServices(uTServices: readonly UTServiceForAPI[]): readonly UTServiceCard[] {
   const uTServicesMap = new Map<number, UTServiceCard>()
   uTServices.forEach(({
     codename,

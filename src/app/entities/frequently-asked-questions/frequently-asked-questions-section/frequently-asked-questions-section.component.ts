@@ -14,7 +14,7 @@ import { FrequentlyAskedQuestion } from '~entities/frequently-asked-questions/fr
   templateUrl: './frequently-asked-questions-section.component.html',
 })
 export class FrequentlyAskedQuestionsSectionComponent implements OnInit {
-  protected frequentlyAskedQuestions: ReadonlyArray<FrequentlyAskedQuestion> = []
+  protected frequentlyAskedQuestions: readonly FrequentlyAskedQuestion[] = []
   protected sectionParameters: FrequentlyAskedQuestionsSectionParameters = {
     list: {
       emptyStateText: 'No data.',
@@ -38,7 +38,7 @@ export class FrequentlyAskedQuestionsSectionComponent implements OnInit {
       })
       this.frequentlyAskedQuestionsSectionService.readFrequentlyAskedQuestions()
         .pipe(takeUntilDestroyed(this.destroyRef))
-        .subscribe((frequentlyAskedQuestions: ReadonlyArray<FrequentlyAskedQuestion>): void => {
+        .subscribe((frequentlyAskedQuestions: readonly FrequentlyAskedQuestion[]): void => {
           this.frequentlyAskedQuestions = frequentlyAskedQuestions
           this.cdr.markForCheck()
         })

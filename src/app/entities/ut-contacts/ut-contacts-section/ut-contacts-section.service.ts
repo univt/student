@@ -18,7 +18,7 @@ export class UTContactsSectionService {
     return this.httpClient.get<UTContactsSectionParameters>(uTContactsSectionURL)
   }
 
-  public readUTContacts(): Observable<ReadonlyArray<UTContactForAPI>> {
+  public readUTContacts(): Observable<readonly UTContactForAPI[]> {
     return this.uTContactsService.readList()
   }
 }

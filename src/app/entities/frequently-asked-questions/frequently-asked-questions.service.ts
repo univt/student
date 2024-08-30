@@ -11,8 +11,8 @@ export class FrequentlyAskedQuestionsService {
     private readonly httpClient: HttpClient,
   ) {}
 
-  public readList(): Observable<ReadonlyArray<FrequentlyAskedQuestion>> {
-    return this.httpClient.get<ReadonlyArray<FrequentlyAskedQuestion>>(frequentlyAskedQuestionsURL)
+  public readList(): Observable<readonly FrequentlyAskedQuestion[]> {
+    return this.httpClient.get<readonly FrequentlyAskedQuestion[]>(frequentlyAskedQuestionsURL)
   }
 }
 
