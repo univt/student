@@ -16,7 +16,7 @@ import { UTContactForAPI, UTContactCodename } from '~entities/ut-contacts/ut-con
   templateUrl: './ut-contacts-section.component.html',
 })
 export class UTContactsSectionComponent implements OnInit {
-  protected contacts: ReadonlyArray<UTContactForTemplate> = []
+  protected contacts: readonly UTContactForTemplate[] = []
 
   protected sectionParameters: UTContactsSectionParameters = {
     list: {
@@ -41,7 +41,7 @@ export class UTContactsSectionComponent implements OnInit {
       })
     this.uTContactsSectionService.readUTContacts()
       .pipe(takeUntilDestroyed(this.destroyRef))
-      .subscribe((contacts: ReadonlyArray<UTContactForAPI>): void => {
+      .subscribe((contacts: readonly UTContactForAPI[]): void => {
         this.contacts = prepareUTContactsForTemplate(contacts)
         this.cdr.markForCheck()
       })
@@ -76,7 +76,7 @@ function prepareUTContactForTemplate({
   }
 }
 
-function prepareUTContactsForTemplate(uTContacts: ReadonlyArray<UTContactForAPI>): ReadonlyArray<UTContactForTemplate> {
+function prepareUTContactsForTemplate(uTContacts: readonly UTContactForAPI[]): readonly UTContactForTemplate[] {
   const uTContactsMap = new Map<number, UTContactForTemplate>()
   uTContacts.forEach((contact: UTContactForAPI): void => {
     uTContactsMap.set(contact.order, prepareUTContactForTemplate(contact))

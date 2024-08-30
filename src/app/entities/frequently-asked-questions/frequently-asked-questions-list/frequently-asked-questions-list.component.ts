@@ -15,5 +15,5 @@ export class FrequentlyAskedQuestionsListComponent {
   public emptyStateText = 'No data'
 
   @Input({ required: true })
-  public frequentlyAskedQuestions: ReadonlyArray<FrequentlyAskedQuestion> = []
+  public frequentlyAskedQuestions: readonly FrequentlyAskedQuestion[] = []
 }

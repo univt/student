@@ -44,8 +44,8 @@ describe('FrequentlyAskedQuestionsSectionComponent', (): void => {
 class FrequentlyAskedQuestionsListStubComponent {}
 
 class FrequentlyAskedQuestionsSectionStubService {
-  public readFrequentlyAskedQuestions(): Observable<ReadonlyArray<FrequentlyAskedQuestion>> {
-    const list: ReadonlyArray<FrequentlyAskedQuestion> = [
+  public readFrequentlyAskedQuestions(): Observable<readonly FrequentlyAskedQuestion[]> {
+    const list: readonly FrequentlyAskedQuestion[] = [
       {
         answer: 'Ответ на вопрос №1',
         question: 'Вопрос №1',

@@ -26,8 +26,8 @@ describe('UTServicesSectionService', (): void => {
 })
 
 class UTServicesStubService {
-  public readList(): Observable<ReadonlyArray<UTServiceCard>> {
-    const services: ReadonlyArray<UTServiceCard> = [
+  public readList(): Observable<readonly UTServiceCard[]> {
+    const services: readonly UTServiceCard[] = [
       {
         codename: 'service1',
         contactURL: 'service1',

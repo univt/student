@@ -14,7 +14,7 @@ import { UTServicesSectionParameters } from '~entities/ut-services/ut-services-s
   templateUrl: './ut-services-section.component.html',
 })
 export class UTServicesSectionComponent implements OnInit {
-  protected uTServices: ReadonlyArray<UTServiceCard> = []
+  protected uTServices: readonly UTServiceCard[] = []
   protected sectionParameters: UTServicesSectionParameters = {
     list: {
       emptyStateText: 'No data.',
@@ -39,7 +39,7 @@ export class UTServicesSectionComponent implements OnInit {
       })
     this.uTServicesSectionService.readUTServices()
       .pipe(takeUntilDestroyed(this.destroyRef))
-      .subscribe((uTServices: ReadonlyArray<UTServiceCard>): void => {
+      .subscribe((uTServices: readonly UTServiceCard[]): void => {
         this.uTServices = uTServices
         this.cdr.markForCheck()
       })
