@@ -43,6 +43,7 @@ class UTServicesSectionStubService {
     const sectionParameters: UTServicesSectionParameters = {
       list: {
         emptyStateText: 'No data.',
+        openChatButtonText: 'No data',
       },
       title: 'No data',
     }
