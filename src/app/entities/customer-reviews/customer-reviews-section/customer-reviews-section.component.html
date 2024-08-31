@@ -1,0 +1,23 @@
+<section class="app-section">
+  <h1>{{sectionParameters.title}}</h1>
+  <p-carousel
+    [responsiveOptions]="carouselResponsiveOptions"
+    [value]="customerReviews"
+  >
+    <ng-template let-customerReview pTemplate="item">
+      <article class="app-customer-review__article">
+        <h1 class="app-customer-review__title-container">
+          <span class="app-customer-review__customer-name">{{customerReview.anonymousCustomerName}}</span>
+          <time class="app-customer-review__create-date" [attr.datetime]="customerReview.createDateDateTime">{{customerReview.createDateText}}</time>
+        </h1>
+        <div>
+          @for (paragraph of customerReview.reviewParagraphList; track paragraph) {
+            <p>{{paragraph}}</p>
+          } @empty {
+            <p>{{sectionParameters.list.emptyStateText}}</p>
+          }
+        </div>
+      </article>
+    </ng-template>
+  </p-carousel>
+</section>
