@@ -34,7 +34,7 @@ class UTContactsSectionStubService {
       list: {
         emptyStateText: 'No data.',
       },
-      title: 'No data',
+      titleText: 'No data',
     }
     return of(sectionParameters)
   }

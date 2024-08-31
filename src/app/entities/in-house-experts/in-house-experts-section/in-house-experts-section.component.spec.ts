@@ -30,7 +30,7 @@ describe('InHouseExpertsSectionComponent', (): void => {
 class InHouseExpertsSectionStubService {
   public readSectionParameters(): Observable<InHouseExpertsSectionParameters> {
     const sectionParameters: InHouseExpertsSectionParameters = {
-      description: 'description',
+      descriptionText: 'descriptionText',
     }
     return of(sectionParameters)
   }

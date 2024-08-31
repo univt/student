@@ -20,7 +20,7 @@ export class UTServicesSectionComponent implements OnInit {
       emptyStateText: 'No data.',
       openChatButtonText: 'No data',
     },
-    title: 'No data',
+    titleText: 'No data',
   }
 
   private readonly destroyRef = inject(DestroyRef)
