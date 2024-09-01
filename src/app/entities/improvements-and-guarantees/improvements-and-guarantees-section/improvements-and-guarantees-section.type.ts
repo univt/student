@@ -1,4 +1,4 @@
 export interface ImprovementsAndGuaranteesSectionParameters {
-  readonly description: string
-  readonly title: string
+  readonly descriptionText: string
+  readonly titleText: string
 }

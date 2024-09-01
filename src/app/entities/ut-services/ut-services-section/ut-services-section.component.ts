@@ -14,33 +14,33 @@ import { UTServicesSectionParameters } from '~entities/ut-services/ut-services-s
   templateUrl: './ut-services-section.component.html',
 })
 export class UTServicesSectionComponent implements OnInit {
-  protected uTServices: ReadonlyArray<UTServiceCard> = []
-  protected sectionParameters: UTServicesSectionParameters = {
+  public utServices: readonly UTServiceCard[] = []
+  public sectionParameters: UTServicesSectionParameters = {
     list: {
       emptyStateText: 'No data.',
       openChatButtonText: 'No data',
     },
-    title: 'No data',
+    titleText: 'No data',
   }
 
   private readonly destroyRef = inject(DestroyRef)
 
   constructor(
     private readonly cdr: ChangeDetectorRef,
-    private readonly uTServicesSectionService: UTServicesSectionService,
+    private readonly utServicesSectionService: UTServicesSectionService,
   ) {}
 
   public ngOnInit(): void {
-    this.uTServicesSectionService.readSectionParameters()
+    this.utServicesSectionService.readSectionParameters()
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe((sectionParameters: UTServicesSectionParameters): void => {
         this.sectionParameters = sectionParameters
         this.cdr.markForCheck()
       })
-    this.uTServicesSectionService.readUTServices()
+    this.utServicesSectionService.readUTServices()
       .pipe(takeUntilDestroyed(this.destroyRef))
-      .subscribe((uTServices: ReadonlyArray<UTServiceCard>): void => {
-        this.uTServices = uTServices
+      .subscribe((utServices: readonly UTServiceCard[]): void => {
+        this.utServices = utServices
         this.cdr.markForCheck()
       })
   }

@@ -34,13 +34,13 @@ class UTContactsSectionStubService {
       list: {
         emptyStateText: 'No data.',
       },
-      title: 'No data',
+      titleText: 'No data',
     }
     return of(sectionParameters)
   }
 
-  public readUTContacts(): Observable<ReadonlyArray<UTContactForAPI>> {
-    const contacts: ReadonlyArray<UTContactForAPI> = [
+  public readUTContacts(): Observable<readonly UTContactForAPI[]> {
+    const contacts: readonly UTContactForAPI[] = [
       {
         codename: UTContactCodename.VK,
         name: 'VK',

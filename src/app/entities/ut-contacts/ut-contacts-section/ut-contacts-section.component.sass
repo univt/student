@@ -12,7 +12,14 @@
   --link-color: var(--color-violet-dark-8)
   --link-color-hover: var(--color-accent)
 
-  --size: 24px
+  --icon-size: 24px
+
+:host
+  display: block
+
+.app-section
+  @include app-layout-horizontal-paddings-mixin
+  padding-bottom: 40px
 
 :host
   display: block
@@ -24,13 +31,13 @@
 .app-contacts-container
   display: flex
   flex-wrap: wrap
-  gap: var(--size)
+  gap: var(--icon-size)
 
 .app-contact-a
   display: flex
   align-items: center
   gap: 8px
-  font-size: var(--size)
+  font-size: var(--icon-size)
   color: var(--link-color)
   transition: color .3s
 
@@ -38,4 +45,4 @@
     color: var(--link-color-hover)
 
 .app-icon-container
-  width: var(--size)
+  width: var(--icon-size)
