@@ -1,3 +1,3 @@
 export interface InHouseExpertsSectionParameters {
-  readonly description: string
+  readonly descriptionText: string
 }

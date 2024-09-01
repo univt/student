@@ -43,14 +43,15 @@ class UTServicesSectionStubService {
     const sectionParameters: UTServicesSectionParameters = {
       list: {
         emptyStateText: 'No data.',
+        openChatButtonText: 'No data',
       },
-      title: 'No data',
+      titleText: 'No data',
     }
     return of(sectionParameters)
   }
 
-  public readUTServices(): Observable<ReadonlyArray<UTServiceCard>> {
-    const services: ReadonlyArray<UTServiceCard> = [
+  public readUTServices(): Observable<readonly UTServiceCard[]> {
+    const services: readonly UTServiceCard[] = [
       {
         codename: 'service1',
         contactURL: 'service1',

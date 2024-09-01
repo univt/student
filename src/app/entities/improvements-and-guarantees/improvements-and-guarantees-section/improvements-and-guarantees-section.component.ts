@@ -13,8 +13,8 @@ import { ImprovementsAndGuaranteesSectionParameters } from '~entities/improvemen
 })
 export class ImprovementsAndGuaranteesSectionComponent implements OnInit {
   protected sectionParameters: ImprovementsAndGuaranteesSectionParameters = {
-    description: 'No data.',
-    title: 'No data',
+    descriptionText: 'No data.',
+    titleText: 'No data',
   }
 
   private readonly destroyRef = inject(DestroyRef)

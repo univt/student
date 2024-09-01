@@ -3,5 +3,5 @@ export interface UTServicesSectionParameters {
     readonly emptyStateText: string
     readonly openChatButtonText: string
   }
-  readonly title: string
+  readonly titleText: string
 }

@@ -11,9 +11,9 @@ export class UTServicesService {
     private readonly httpClient: HttpClient,
   ) {}
 
-  public readList(): Observable<ReadonlyArray<UTServiceForAPI>> {
-    return this.httpClient.get<ReadonlyArray<UTServiceForAPI>>(uTServicesURL)
+  public readList(): Observable<readonly UTServiceForAPI[]> {
+    return this.httpClient.get<readonly UTServiceForAPI[]>(utServicesURL)
   }
 }
 
-const uTServicesURL = 'https://univt.github.io/student-data/data/entities/ut-services/ut-services.json'
+const utServicesURL = 'https://univt.github.io/student-data/data/entities/ut-services/ut-services.json'
