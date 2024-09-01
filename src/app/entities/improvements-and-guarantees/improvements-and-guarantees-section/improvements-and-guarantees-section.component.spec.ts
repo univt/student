@@ -30,8 +30,8 @@ describe('ImprovementsAndGuaranteesSectionComponent', (): void => {
 class ImprovementsAndGuaranteesSectionStubService {
   public readSectionParameters(): Observable<ImprovementsAndGuaranteesSectionParameters> {
     const sectionParameters: ImprovementsAndGuaranteesSectionParameters = {
-      description: 'description',
-      title: 'title',
+      descriptionText: 'descriptionText',
+      titleText: 'titleText',
     }
     return of(sectionParameters)
   }

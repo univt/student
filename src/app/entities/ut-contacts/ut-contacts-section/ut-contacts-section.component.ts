@@ -22,7 +22,7 @@ export class UTContactsSectionComponent implements OnInit {
     list: {
       emptyStateText: 'No data.',
     },
-    title: 'No data',
+    titleText: 'No data',
   }
 
   private readonly destroyRef = inject(DestroyRef)

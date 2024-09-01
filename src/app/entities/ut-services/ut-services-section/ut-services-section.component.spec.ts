@@ -45,7 +45,7 @@ class UTServicesSectionStubService {
         emptyStateText: 'No data.',
         openChatButtonText: 'No data',
       },
-      title: 'No data',
+      titleText: 'No data',
     }
     return of(sectionParameters)
   }

@@ -13,7 +13,7 @@ import { InHouseExpertsSectionParameters } from '~entities/in-house-experts/in-h
 })
 export class InHouseExpertsSectionComponent implements OnInit {
   protected sectionParameters: InHouseExpertsSectionParameters = {
-    description: 'No data.',
+    descriptionText: 'No data.',
   }
 
   private readonly destroyRef = inject(DestroyRef)
