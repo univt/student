@@ -11,16 +11,16 @@ import { UTContactForAPI } from '~entities/ut-contacts/ut-contacts.type'
 export class UTContactsSectionService {
   constructor(
     private readonly httpClient: HttpClient,
-    private readonly uTContactsService: UTContactsService,
+    private readonly utContactsService: UTContactsService,
   ) {}
 
   public readSectionParameters(): Observable<UTContactsSectionParameters> {
-    return this.httpClient.get<UTContactsSectionParameters>(uTContactsSectionURL)
+    return this.httpClient.get<UTContactsSectionParameters>(utContactsSectionURL)
   }
 
   public readUTContacts(): Observable<readonly UTContactForAPI[]> {
-    return this.uTContactsService.readList()
+    return this.utContactsService.readList()
   }
 }
 
-const uTContactsSectionURL = 'https://univt.github.io/student-data/data/sections/ut-contacts/ut-contacts-section.json'
+const utContactsSectionURL = 'https://univt.github.io/student-data/data/sections/ut-contacts/ut-contacts-section.json'

@@ -14,7 +14,7 @@ import { UTServicesSectionParameters } from '~entities/ut-services/ut-services-s
   templateUrl: './ut-services-section.component.html',
 })
 export class UTServicesSectionComponent implements OnInit {
-  protected uTServices: readonly UTServiceCard[] = []
+  protected utServices: readonly UTServiceCard[] = []
   protected sectionParameters: UTServicesSectionParameters = {
     list: {
       emptyStateText: 'No data.',
@@ -27,20 +27,20 @@ export class UTServicesSectionComponent implements OnInit {
 
   constructor(
     private readonly cdr: ChangeDetectorRef,
-    private readonly uTServicesSectionService: UTServicesSectionService,
+    private readonly utServicesSectionService: UTServicesSectionService,
   ) {}
 
   public ngOnInit(): void {
-    this.uTServicesSectionService.readSectionParameters()
+    this.utServicesSectionService.readSectionParameters()
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe((sectionParameters: UTServicesSectionParameters): void => {
         this.sectionParameters = sectionParameters
         this.cdr.markForCheck()
       })
-    this.uTServicesSectionService.readUTServices()
+    this.utServicesSectionService.readUTServices()
       .pipe(takeUntilDestroyed(this.destroyRef))
-      .subscribe((uTServices: readonly UTServiceCard[]): void => {
-        this.uTServices = uTServices
+      .subscribe((utServices: readonly UTServiceCard[]): void => {
+        this.utServices = utServices
         this.cdr.markForCheck()
       })
   }

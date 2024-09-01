@@ -22,5 +22,5 @@ export class PriceListComponent {
   public openChatButtonText = 'No data'
 
   @Input({ required: true })
-  public uTServices: readonly UTServiceCard[] = []
+  public utServices: readonly UTServiceCard[] = []
 }
