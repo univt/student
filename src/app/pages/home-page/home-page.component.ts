@@ -8,6 +8,7 @@ import { ImprovementsAndGuaranteesSectionComponent } from '~entities/improvement
 import { InHouseExpertsSectionComponent } from '~entities/in-house-experts/in-house-experts-section/in-house-experts-section.component'
 import { UTContactsSectionComponent } from '~entities/ut-contacts/ut-contacts-section/ut-contacts-section.component'
 import { UTServicesSectionComponent } from '~entities/ut-services/ut-services-section/ut-services-section.component'
+import { UTPeculiaritiesSectionComponent } from "../../entities/ut-peculiarities/ut-peculiarities-section/ut-peculiarities-section.component";
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -20,6 +21,7 @@ import { UTServicesSectionComponent } from '~entities/ut-services/ut-services-se
     ImprovementsAndGuaranteesSectionComponent,
     InHouseExpertsSectionComponent,
     UTContactsSectionComponent,
+    UTPeculiaritiesSectionComponent,
     UTServicesSectionComponent,
   ],
   selector: 'app-home-page',
