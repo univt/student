@@ -1,10 +1,8 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { FrequentlyAskedQuestionsSectionService } from '~entities/frequently-asked-questions/frequently-asked-questions-section/frequently-asked-questions-section.service';
-import { HowAndWhatWeMakeSectionParametersSectionComponent } from './how-and-what-we-make-section.component';
-import { HowAndWhatWeMakeSectionParametersSectionService } from '~composite-sections/how-and-what-we-make/how-and-what-we-make-section.service';
-import { Observable, of } from 'rxjs';
-import { HowAndWhatWeMakeSectionParameters } from '~app/composite-sections/how-and-what-we-make/how-and-what-we-make-section.type';
+import { ComponentFixture, TestBed } from '@angular/core/testing'
+import { Observable, of } from 'rxjs'
+import { HowAndWhatWeMakeSectionParametersSectionService } from '~composite-sections/how-and-what-we-make/how-and-what-we-make-section.service'
+import { HowAndWhatWeMakeSectionParameters } from '~composite-sections/how-and-what-we-make/how-and-what-we-make-section.type'
+import { HowAndWhatWeMakeSectionParametersSectionComponent } from './how-and-what-we-make-section.component'
 
 describe('HowAndWhatWeMakeSectionParametersSectionComponent', (): void => {
   let component: HowAndWhatWeMakeSectionParametersSectionComponent;
