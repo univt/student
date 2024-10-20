@@ -50,7 +50,17 @@
             ],
             "scripts": [],
             "styles": [
-              "src/styles.sass"
+              "src/styles.sass",
+              {
+                "bundleName": "lara-dark-amber",
+                "inject": false,
+                "input": "src/themes/lara-dark-amber.sass"
+              },
+              {
+                "bundleName": "lara-light-amber",
+                "inject": false,
+                "input": "src/themes/lara-light-amber.sass"
+              }
             ],
             "tsConfig": "tsconfig.app.json"
           }

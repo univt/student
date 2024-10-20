@@ -1,0 +1,39 @@
+@use '../../../ui-kit/layout/layout'
+
+:host
+  display: block
+
+.app-section
+  @include layout.app-layout-horizontal-paddings-mixin
+  padding-bottom: 40px
+
+.app-customer-review__article
+  display: flex
+  flex-direction: column-reverse
+  margin: 8px
+
+.app-customer-review__title-container
+  $gap: .5rem 1rem // TODO: `rem` or `px`? CSS variables?
+
+  display: flex
+  align-items: baseline
+  flex-wrap: wrap
+  gap: $gap
+
+.app-customer-review__customer-name
+  $font-size: 1.5rem // TODO: `rem` or `px`? CSS variables?
+  $font-weight: 700 // TODO: CSS variables?
+  $color: #4b5563 // TODO: CSS variables?
+
+  font-size: $font-size
+  font-weight: $font-weight
+  color: $color
+
+.app-customer-review__create-date
+  $font-size: 1rem // TODO: `rem` or `px`? CSS variables?
+  $font-weight: 400 // TODO: CSS variables?
+  $color: #6b7280 // TODO: CSS variables?
+
+  font-size: $font-size
+  font-weight: $font-weight
+  color: $color

@@ -1,0 +1,13 @@
+<div class="app-card-list-container">
+  @for (utPeculiarity of utPeculiarities; track utPeculiarity.name) {
+    <div class="app-card-container">
+      <p-card
+        [header]="utPeculiarity.name"
+      >
+        <div class="app-card-content-container">{{utPeculiarity.description}}</div>
+      </p-card>
+    </div>
+  } @empty {
+    <p>{{emptyStateText}}</p>
+  }
+</div>
