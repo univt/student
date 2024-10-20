@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, DestroyRef, inje
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
 import { HeaderSectionService } from '~composite-sections/header-section/header-section.service'
 import { HeaderSectionParameters } from '~composite-sections/header-section/header-section.type'
+import { UTTheme, UTThemeSwitcherService } from '~composite-sections/header-section/ut-theme-switcher.service'
 import { LayoutHeaderComponent } from '~ui-kit/layout/layout-header/layout-header.component'
 
 @Component({
@@ -21,10 +22,12 @@ export class HeaderSectionComponent implements OnInit {
   }
 
   private readonly destroyRef = inject(DestroyRef)
+  private utThemeIsDark = false
 
   constructor(
     private readonly cdr: ChangeDetectorRef,
     private readonly headerSectionService: HeaderSectionService,
+    private readonly utThemeSwitcherService: UTThemeSwitcherService,
   ) {}
 
   public ngOnInit(): void {
@@ -34,5 +37,12 @@ export class HeaderSectionComponent implements OnInit {
         this.sectionParameters = sectionParameters
         this.cdr.markForCheck()
       })
+  }
+
+  protected layoutHeaderDoubleClickHandler(): void {
+    this.utThemeIsDark = !this.utThemeIsDark;
+    this.utThemeSwitcherService.switchTheme(
+      this.utThemeIsDark ? UTTheme.Dark : UTTheme.Light
+    )
   }
 }

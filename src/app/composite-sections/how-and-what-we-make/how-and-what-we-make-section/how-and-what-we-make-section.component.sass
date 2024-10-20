@@ -4,4 +4,10 @@
   display: block
 
 .app-section
+  display: grid
+  gap: 16px
+  grid-template-columns: 1fr
   @include layout.app-layout-horizontal-paddings-mixin
+
+  @media (1024px <= width)
+    grid-template-columns: 1fr 1fr

@@ -1,0 +1,18 @@
+<section class="app-section">
+  <article>
+    <h1>{{howWeMakeTitleText}}</h1>
+    <ul>
+      @for (item of howWeMakeList; track $index) {
+        <li>{{item}}</li>
+      }
+    </ul>
+  </article>
+  <article>
+    <h1>{{whatWeMakeTitleText}}</h1>
+    <ul>
+      @for (item of whatWeMakeList; track $index) {
+        <li>{{item}}</li>
+      }
+    </ul>
+  </article>
+</section>
