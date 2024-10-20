@@ -1,4 +1,4 @@
-@import '../layout'
+@use '../layout'
 
 :host
   // TODO: Move to `color-palette-variables.sass`.
@@ -11,7 +11,7 @@
   display: flex
   align-items: center
   justify-content: space-between
-  @include app-layout-horizontal-paddings-mixin
+  @include layout.app-layout-horizontal-paddings-mixin
   height: 48px
   background: var(--background-color)
 

@@ -1,4 +1,4 @@
-@import '../../../ui-kit/layout/layout'
+@use '../../../ui-kit/layout/layout'
 
 :host
   display: block
@@ -7,7 +7,7 @@
   display: grid
   gap: 16px
   grid-template-columns: 1fr
-  @include app-layout-horizontal-paddings-mixin
+  @include layout.app-layout-horizontal-paddings-mixin
 
   @media (1024px <= width)
     grid-template-columns: 1fr 1fr
