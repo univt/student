@@ -1,4 +1,4 @@
-@import '../../../ui-kit/layout/layout'
+@use '../../../ui-kit/layout/layout'
 
 :host
   // TODO: Move to `color-palette-variables.sass`.
@@ -18,7 +18,7 @@
   display: block
 
 .app-section
-  @include app-layout-horizontal-paddings-mixin
+  @include layout.app-layout-horizontal-paddings-mixin
   padding-bottom: 40px
 
 :host
